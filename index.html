@@ -2,11 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="styles (1).css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inspirational Life Quotes</title>
-  
+  <style>
+    body {
+      padding: 25px;
+    }
+
+    .title {
+      color: #5C6AC4;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .quote-box {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 600px;
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background: #00c6ff;
+      color: #000;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #0072ff;
+      color: #fff;
+    }
+  </style>
+
 </head>
+
 <body>
   <h1>🌟 Inspirational Life Quote</h1>
   <div class="quote-box" id="quoteBox">
@@ -14,6 +73,33 @@
   </div>
   <button onclick="newQuote()">New Quote</button>
 
-  <script src="script (1).js"></script>
+  <script>
+    const quotes = [
+      `"In the middle of every difficulty lies opportunity." – Albert Einstein`,
+      `"Your time is limited, so don’t waste it living someone else’s life." – Steve Jobs`,
+      `"Success is not final, failure is not fatal: It is the courage to continue that counts." – Winston Churchill`,
+      `"Believe you can and you're halfway there." – Theodore Roosevelt`,
+      `"Do what you can, with what you have, where you are." – Theodore Roosevelt`,
+      `"Happiness is not something ready made. It comes from your own actions." – Dalai Lama`,
+      `"You miss 100% of the shots you don’t take." – Wayne Gretzky`,
+      `"Don’t watch the clock; do what it does. Keep going." – Sam Levenson`,
+      `"It does not matter how slowly you go as long as you do not stop." – Confucius`,
+      `"The only way to do great work is to love what you do." – Steve Jobs`
+    ];
+
+    function newQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      document.getElementById('quoteBox').textContent = quotes[randomIndex];
+    }
+
+    function showTime() {
+      document.getElementById('currentTime').innerHTML = new Date().toUTCString();
+    }
+    showTime();
+    setInterval(function () {
+      showTime();
+    }, 1000);
+  </script>
 </body>
+
 </html>
